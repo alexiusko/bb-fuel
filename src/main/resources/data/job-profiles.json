@@ -47,11 +47,7 @@
       {
         "businessFunction": "Manage Topics",
         "privileges": [
-          "execute",
-          "view",
-          "create",
-          "edit",
-          "delete"
+          "view"
         ]
       },
       {
@@ -402,7 +398,24 @@
       {
         "businessFunction": "Manage Topics",
         "privileges": [
-          "execute",
+          "view",
+          "create",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "businessFunction": "Supervise Messages",
+        "privileges": [
+          "view",
+          "create",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "businessFunction": "Manage Messages",
+        "privileges": [
           "view",
           "create",
           "edit",
@@ -647,7 +660,24 @@
       {
         "businessFunction": "Manage Topics",
         "privileges": [
-          "execute",
+          "view",
+          "create",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "businessFunction": "Supervise Messages",
+        "privileges": [
+          "view",
+          "create",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "businessFunction": "Manage Messages",
+        "privileges": [
           "view",
           "create",
           "edit",
