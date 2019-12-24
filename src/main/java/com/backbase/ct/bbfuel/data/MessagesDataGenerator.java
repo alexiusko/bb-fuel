@@ -3,10 +3,12 @@ package com.backbase.ct.bbfuel.data;
 import static com.backbase.ct.bbfuel.util.CommonHelpers.getRandomFromList;
 import static java.util.Arrays.asList;
 
+import com.backbase.dbs.messages.integration.model.v1.topics.CreateTopicIntegrationRequest;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.ConversationDraftsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.DraftsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.MessageDraftsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.PresentationMessagePostRequestBody;
+import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.SubscriptionsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.TopicsPostRequestBody;
 import com.github.javafaker.Faker;
 import java.util.Arrays;
@@ -58,6 +60,17 @@ public class MessagesDataGenerator {
             .withSubject(faker.lorem().word())
             .withTopic(topicId)
             .withAttachments(Arrays.asList(attachmentIds));
+    }
+
+    public static SubscriptionsPostRequestBody generateSubscriptionsPostRequestBody(String internalUserId) {
+        return new SubscriptionsPostRequestBody()
+            .withInternalUserId(internalUserId);
+    }
+
+    public static CreateTopicIntegrationRequest generateTopicIntegrationRequest() {
+        return new CreateTopicIntegrationRequest()
+            .withName(faker.lorem().sentence(2, 2))
+            .withExternalId(faker.idNumber().valid());
     }
 
     private static String encodeString(String value) {

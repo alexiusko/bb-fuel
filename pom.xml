@@ -138,6 +138,10 @@
         </dependency>
         <dependency>
             <groupId>com.backbase.dbs.messages</groupId>
+            <artifactId>messages-inbound-integration-spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.backbase.dbs.messages</groupId>
             <artifactId>messages-presentation-spec</artifactId>
         </dependency>
         <dependency>

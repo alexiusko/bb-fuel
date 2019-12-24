@@ -6,6 +6,7 @@ import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.Convers
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.DraftsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.MessageDraftsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.PresentationMessagePostRequestBody;
+import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.SubscriptionsPostRequestBody;
 import com.backbase.dbs.messages.presentation.rest.spec.v4.messagecenter.TopicsPostRequestBody;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -33,6 +34,7 @@ public class MessagesPresentationRestClient extends RestClient {
     @Deprecated
     private static final String ENDPOINT_CONVERSATION_DRAFTS = ENDPOINT_CONVERSATIONS + "/%s/drafts";
     private static final String ENDPOINT_TOPICS = ENDPOINT_MESSAGE_CENTER + "/topics";
+    private static final String ENDPOINT_SUBSCRIPTIONS = ENDPOINT_TOPICS + "/%s/subscriptions";
     private static final String ENDPOINT_MESSAGES = ENDPOINT_MESSAGE_CENTER + "/messages";
     private static final String ENDPOINT_ATTACHMENTS = ENDPOINT_MESSAGE_CENTER + "/attachments";
     private static final String ENDPOINT_MESSAGES_DRAFTS = ENDPOINT_MESSAGES + "/drafts";
@@ -81,6 +83,14 @@ public class MessagesPresentationRestClient extends RestClient {
             .contentType(ContentType.JSON)
             .body(topicsPostRequestBody)
             .post(getPath(ENDPOINT_TOPICS));
+    }
+
+    public Response postSubscription(SubscriptionsPostRequestBody subscription, String topicId) {
+        return requestSpec()
+            .contentType(ContentType.JSON)
+            .body(subscription)
+            .post(getPath(String.format(ENDPOINT_SUBSCRIPTIONS, topicId)));
+
     }
 
     public Response createMessage(PresentationMessagePostRequestBody requestBody) {
